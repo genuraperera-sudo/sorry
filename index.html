@@ -1,0 +1,369 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sorry Yesansa ❤️</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      color: white;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 650px;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(15px);
+      border-radius: 25px;
+      padding: 35px;
+      text-align: center;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+      z-index: 5;
+    }
+
+    h1 {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    h2 {
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin: 12px 0;
+    }
+
+    button {
+      border: none;
+      padding: 14px 25px;
+      border-radius: 30px;
+      font-size: 17px;
+      cursor: pointer;
+      margin: 10px;
+      transition: 0.2s;
+      font-weight: bold;
+    }
+
+    .primary {
+      background: white;
+      color: #ff4f81;
+    }
+
+    .primary:hover {
+      transform: scale(1.08);
+    }
+
+    .game {
+      display: none;
+    }
+
+    #gameArea {
+      position: relative;
+      height: 300px;
+      background: rgba(0,0,0,0.12);
+      border-radius: 20px;
+      margin: 20px 0;
+      overflow: hidden;
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 30px;
+      cursor: pointer;
+      animation: fall linear;
+      user-select: none;
+    }
+
+    @keyframes fall {
+      from {
+        top: -40px;
+      }
+      to {
+        top: 320px;
+      }
+    }
+
+    #score {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    #final {
+      display: none;
+    }
+
+    .yesansa {
+      font-size: 55px;
+      animation: heartbeat 1.2s infinite;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.15);
+      }
+    }
+
+    .floating {
+      position: absolute;
+      font-size: 25px;
+      animation: floatUp 7s linear infinite;
+      opacity: 0.7;
+    }
+
+    @keyframes floatUp {
+      from {
+        transform: translateY(100vh);
+      }
+      to {
+        transform: translateY(-100px);
+      }
+    }
+
+    #noBtn {
+      background: #ffdddd;
+      color: #d33;
+    }
+
+    #yesBtn {
+      background: white;
+      color: #ff4f81;
+    }
+
+    .small {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Floating hearts -->
+  <div class="floating" style="left:10%; animation-delay:0s;">❤️</div>
+  <div class="floating" style="left:25%; animation-delay:2s;">💗</div>
+  <div class="floating" style="left:45%; animation-delay:4s;">💕</div>
+  <div class="floating" style="left:70%; animation-delay:1s;">❤️</div>
+  <div class="floating" style="left:90%; animation-delay:3s;">💖</div>
+
+  <!-- MAIN PAGE -->
+  <div class="container" id="main">
+
+    <div class="yesansa">🥺</div>
+
+    <h1>I'm Sorry, Yesansa ❤️</h1>
+
+    <p>
+      Okay... I have an important announcement to make.
+    </p>
+
+    <p>
+      <strong>I'M SORRY 😭</strong>
+    </p>
+
+    <p>
+      I'm genuinely sorry for keeping you awake.
+      I know you probably wanted to sleep peacefully,
+      and instead you got stuck dealing with me 💀😭
+    </p>
+
+    <p>
+      So... I have prepared a very serious apology
+      which obviously required an entire website.
+    </p>
+
+    <button class="primary" onclick="startGame()">
+      🎮 Accept My Apology Challenge
+    </button>
+
+  </div>
+
+
+  <!-- GAME -->
+  <div class="container game" id="game">
+
+    <h2>❤️ Forgiveness Challenge ❤️</h2>
+
+    <p>
+      Catch <strong>10 hearts</strong> to unlock the final apology!
+    </p>
+
+    <div id="score">Hearts: 0 / 10</div>
+
+    <div id="gameArea"></div>
+
+    <p class="small">
+      Click the falling ❤️ before they disappear!
+    </p>
+
+  </div>
+
+
+  <!-- FINAL -->
+  <div class="container" id="final">
+
+    <div class="yesansa">❤️</div>
+
+    <h1>YESANSA 🥺</h1>
+
+    <p>
+      I know keeping you awake wasn't exactly my greatest achievement 😭
+    </p>
+
+    <p>
+      But I really am sorry.
+      You deserve your sleep, your peace,
+      and probably a boyfriend who knows when to stop talking 💀
+    </p>
+
+    <p>
+      So here's my very important question...
+    </p>
+
+    <h2>Will you forgive me? 🥺👉👈</h2>
+
+    <button id="yesBtn" onclick="forgive()">
+      ❤️ YES, I FORGIVE YOU
+    </button>
+
+    <button id="noBtn" onclick="moveNo()">
+      NO 😤
+    </button>
+
+    <div id="response"></div>
+
+  </div>
+
+
+<script>
+
+  let score = 0;
+
+  function startGame() {
+
+    document.getElementById("main").style.display = "none";
+    document.getElementById("game").style.display = "block";
+
+    createHeart();
+  }
+
+
+  function createHeart() {
+
+    if (score >= 10) {
+      finishGame();
+      return;
+    }
+
+    const heart = document.createElement("div");
+
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+
+    heart.style.left = Math.random() * 90 + "%";
+
+    const duration = 2 + Math.random() * 2;
+
+    heart.style.animationDuration = duration + "s";
+
+    heart.onclick = function() {
+
+      score++;
+
+      document.getElementById("score").innerText =
+        "Hearts: " + score + " / 10";
+
+      heart.remove();
+
+      if (score >= 10) {
+        finishGame();
+      } else {
+        createHeart();
+      }
+    };
+
+    document.getElementById("gameArea").appendChild(heart);
+
+    setTimeout(() => {
+
+      if (heart.parentElement) {
+        heart.remove();
+
+        if (score < 10) {
+          createHeart();
+        }
+      }
+
+    }, duration * 1000);
+  }
+
+
+  function finishGame() {
+
+    document.getElementById("game").style.display = "none";
+    document.getElementById("final").style.display = "block";
+
+  }
+
+
+  function forgive() {
+
+    document.getElementById("response").innerHTML = `
+      <br>
+      <h2>YAAAAAY 😭❤️</h2>
+      <p>
+        I KNEW YOU COULDN'T RESIST 😭
+      </p>
+      <p>
+        Thank you for forgiving me, Yesansa ❤️
+      </p>
+      <p>
+        Now please go get some sleep 😭💤
+      </p>
+      <div style="font-size:50px;">❤️ 🥺 ❤️</div>
+    `;
+
+    document.getElementById("yesBtn").style.display = "none";
+    document.getElementById("noBtn").style.display = "none";
+  }
+
+
+  function moveNo() {
+
+    const button = document.getElementById("noBtn");
+
+    const x = Math.random() * 250 - 125;
+    const y = Math.random() * 150 - 75;
+
+    button.style.transform =
+      `translate(${x}px, ${y}px)`;
+
+    button.innerText = "Are you sure? 🥺";
+
+  }
+
+</script>
+
+</body>
+</html>
+```
